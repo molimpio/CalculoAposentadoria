@@ -32,7 +32,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_calcular"
+        android:id="@+id/bt_calcular"
         android:text="@string/calcular" />
 
     <TextView
