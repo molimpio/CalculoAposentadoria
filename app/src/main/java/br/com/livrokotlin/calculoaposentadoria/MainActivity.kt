@@ -3,6 +3,7 @@ package br.com.livrokotlin.calculoaposentadoria
 import android.app.Activity
 import android.os.Bundle
 import android.widget.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity: Activity() {
 
@@ -10,27 +11,21 @@ class MainActivity: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // acessando itens da view
-        val spnSexo = findViewById<Spinner>(R.id.spn_sexo)
-        val etIdade = findViewById<EditText>(R.id.et_idade)
-        val btCalcular = findViewById<Button>(R.id.bt_calcular)
-        val tvResultado = findViewById<TextView>(R.id.tv_resultado)
-
         // adiciona itens no spinner
-        spnSexo.adapter = ArrayAdapter<String>(this,
+        spn_sexo.adapter = ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item,
                 listOf("masculino", "feminino"))
 
         // evento click calcular
-        btCalcular.setOnClickListener {
-            val sexo = spnSexo.selectedItem as String
-            val idade = etIdade.text.toString().toInt()
+        bt_calcular.setOnClickListener {
+            val sexo = spn_sexo.selectedItem as String
+            val idade = et_idade.text.toString().toInt()
             var resultado = 0
 
             if (sexo == "masculino") resultado = 65 - idade
             else resultado = 60 - idade
 
-            tvResultado.text = "Faltam $resultado ano para você se aposentar !"
+            tv_resultado.text = "Faltam $resultado ano para você se aposentar !"
         }
     }
 }
